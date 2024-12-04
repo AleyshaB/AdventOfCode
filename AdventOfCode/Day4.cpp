@@ -17,8 +17,6 @@ void Day4::RunScript(string filename)
 	ifstream MyReadFile(filename);
 
 	vector<string> lines;
-	string xmas = "XMAS";
-	string samx = "SAMX";
 
 	while (getline(MyReadFile, myText)) {
 		lines.push_back(myText);
@@ -46,18 +44,6 @@ void Day4::RunScript(string filename)
 			}
 		}
 	}
-
-	/*for (int i = 0; i < lines.size() - 3; i++) {
-		for (int j = 3; j < lines[i].size(); j++) {
-			if (lines[i][j] == 'X' && lines[i + 1][j - 1] == 'M' && lines[i + 2][j - 2] == 'A' && lines[i + 3][j - 3] == 'S') {
-				total++;
-			}
-
-			if (lines[i][j] == 'S' && lines[i + 1][j - 1] == 'A' && lines[i + 2][j - 2] == 'M' && lines[i + 3][j - 3] == 'X') {
-				total++;
-			}
-		}
-	}*/
 
 	cout << total << endl;
 

@@ -43,7 +43,7 @@
       <Filter>Source Files\Days</Filter>
     </ClCompile>
     <ClCompile Include="Day6.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Days</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,7 +66,7 @@
       <Filter>Header Files\Days</Filter>
     </ClInclude>
     <ClInclude Include="Day6.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Days</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
