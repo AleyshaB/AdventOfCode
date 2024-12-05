@@ -13,6 +13,8 @@ public:
 
 private:
 	void RunScript(string filename);
+	bool SortPages(vector<int>& pages);
 
 	HelperFunctions helperFunctions;
+	map<int, std::vector<int>> rules;
 };
