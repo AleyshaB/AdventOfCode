@@ -4,9 +4,11 @@
 #include "Day4.h"
 #include "Day5.h"
 #include "Day6.h"
+#include "Day7.h"
+#include "Day8.h"
 
 int main()  {
-	Day5 day;
+	Day7 day;
 	day.run();
 
 	return 0;
