@@ -1,15 +1,15 @@
-#include "Day11.h"
+#include "Day13.h"
 
-void Day11::run()
+void Day13::run()
 {
 	// Read from the text file
 	cout << "Test Data: " << endl;
-	RunScript("TestData/2024/Day11Test.txt");
+	RunScript("TestData/2024/Day13Test.txt");
 	cout << "\n\n\n\n\nRealData:" << endl;
-	RunScript("TestData/2024/Day11Real.txt");
+	RunScript("TestData/2024/Day13Real.txt");
 }
 
-void Day11::RunScript(string filename)
+void Day13::RunScript(string filename)
 {
 	// Create a text string, which is used to output the text file
 	string myText;

@@ -60,6 +60,12 @@
     <ClCompile Include="Day11.cpp">
       <Filter>Source Files\Days</Filter>
     </ClCompile>
+    <ClCompile Include="Day12.cpp">
+      <Filter>Source Files\Days</Filter>
+    </ClCompile>
+    <ClCompile Include="Day13.cpp">
+      <Filter>Source Files\Days</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelperFunctions.h">
@@ -96,6 +102,12 @@
       <Filter>Header Files\Days</Filter>
     </ClInclude>
     <ClInclude Include="Day11.h">
+      <Filter>Header Files\Days</Filter>
+    </ClInclude>
+    <ClInclude Include="Day12.h">
+      <Filter>Header Files\Days</Filter>
+    </ClInclude>
+    <ClInclude Include="Day13.h">
       <Filter>Header Files\Days</Filter>
     </ClInclude>
   </ItemGroup>

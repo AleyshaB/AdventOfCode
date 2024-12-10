@@ -6,16 +6,13 @@
 #include <vector>
 #include <map>
 
-class Day10
+class Day12
 {
 public:
 	void run();
 
 private:
 	void RunScript(string filename);
-	int PathFind(pair<int,int> start);
 
 	HelperFunctions helperFunctions;
-
-	vector<vector<int>> grid;
 };
