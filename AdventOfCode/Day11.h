@@ -13,6 +13,7 @@ public:
 
 private:
 	void RunScript(string filename);
+	vector<uint64_t> Update(uint64_t num);
 
 	HelperFunctions helperFunctions;
 };
