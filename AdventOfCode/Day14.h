@@ -6,15 +6,13 @@
 #include <vector>
 #include <map>
 
-class Day12
+class Day14
 {
 public:
 	void run();
 
 private:
 	void RunScript(string filename);
-	void GetAreaAndPerimiter(vector<vector<pair<char, bool>>>& grid, int y, int x);
 
 	HelperFunctions helperFunctions;
-	uint64_t total = 0;
 };
