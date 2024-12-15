@@ -95,3 +95,39 @@ vector<int> HelperFunctions::Sort(std::vector<int> list)
 
 	return list2;
 }
+
+Vec2::Vec2(int newX, int newY)
+{
+	x = newX;
+	y = newY;
+}
+
+Vec2 Vec2::operator+(const Vec2 rhs)
+{
+	return Vec2(x + rhs.x, y + rhs.y);
+}
+
+Vec2 Vec2::operator*(const Vec2 rhs)
+{
+	return Vec2(x * rhs.x, y * rhs.y);
+}
+
+Vec2 Vec2::operator*(const int rhs)
+{
+	return Vec2(x * rhs, y * rhs);
+}
+
+Vec2 Vec2::operator+=(const Vec2 rhs)
+{
+	x += rhs.x;
+	y += rhs.y;
+	return *this;
+}
+
+bool Vec2::operator==(const Vec2 rhs)
+{
+	if (x == rhs.x && y == rhs.y) {
+		return true;
+	}
+	return false;
+}

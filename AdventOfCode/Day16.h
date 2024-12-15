@@ -7,17 +7,13 @@
 #include <map>
 #include <set>
 
-class Day14
+class Day16
 {
 public:
 	void run();
 
 private:
 	void RunScript(string filename);
-	void PrintGrid(set<pair<int, int>> robots);
 
 	HelperFunctions helperFunctions;
-
-	int height = 0;
-	int width = 0;
 };

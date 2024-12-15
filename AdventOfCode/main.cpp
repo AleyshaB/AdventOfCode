@@ -12,9 +12,11 @@
 #include "Day12.h"
 #include "Day13.h"
 #include "Day14.h"
+#include "Day15.h"
+#include "Day16.h"
 
 int main()  {
-	Day13 day;
+	Day15 day;
 	day.run();
 
 	return 0;
