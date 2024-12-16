@@ -107,6 +107,23 @@ Vec2 Vec2::operator+(const Vec2 rhs)
 	return Vec2(x + rhs.x, y + rhs.y);
 }
 
+Vec2 Vec2::operator-(const Vec2 rhs)
+{
+	return Vec2(x - rhs.x, y - rhs.y);
+}
+
+bool Vec2::operator<(const Vec2& rhs)
+{
+	int total = this->y * 100 + this->x;
+	int total2 = rhs.y * 100 + rhs.x;
+	return total < total2;
+}
+
+bool Vec2::operator>(const Vec2& rhs)
+{
+	return this->x > rhs.x;
+}
+
 Vec2 Vec2::operator*(const Vec2 rhs)
 {
 	return Vec2(x * rhs.x, y * rhs.y);
