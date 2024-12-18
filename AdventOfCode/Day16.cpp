@@ -69,9 +69,9 @@ void Day16::RunScript(string filename)
 		}
 	}
 
-	int total = PathFind(nodes, start, end);
+	PathFind(nodes, start, end);
 
-	cout << total << endl;
+	cout << uniquePlaces.size() << endl;
 
 	// Close the file
 	MyReadFile.close();
@@ -89,6 +89,8 @@ int Day16::PathFind(unordered_map<int, vector<Vec2>> grid, Vec2 start, Vec2 end)
 	vector<Vec2> nodes;
 	nodes.push_back(start);
 
+
+	int lowestPoints = -1;
 	while (nodes.size() > 0) {
 		Vec2 current = nodes[0];
 		int currentLowest = fScore[getPos(current)];
@@ -104,7 +106,16 @@ int Day16::PathFind(unordered_map<int, vector<Vec2>> grid, Vec2 start, Vec2 end)
 		//cout << "Current: " << current.x << ", " << current.y << " - Dir " << dirs[getPos(current)].x << ", " << dirs[getPos(current)].y << endl;
 
 		if (current == end) {
-			return ReconstructPath(cameFrom, current);
+			int path = ReconstructPath(cameFrom, current, 0);
+
+			if (path == lowestPoints || lowestPoints == -1) {
+				lowestPoints = path;
+				//cout << "Found Path!" << endl;
+				ReconstructPath(cameFrom, current, 1);
+			}
+			else if (path < lowestPoints) {
+				return 0;
+			}
 		}
 
 		nodes.erase(nodes.begin() + index, nodes.begin() + index  + 1);
@@ -118,6 +129,11 @@ int Day16::PathFind(unordered_map<int, vector<Vec2>> grid, Vec2 start, Vec2 end)
 			}
 			else {
 				tentativeScore += 1001;
+			}
+
+			if (gScore.contains(getPos(iter)) && tentativeScore - 1000 == gScore[getPos(iter)]) {
+				ReconstructPath(cameFrom, current, 2, iter);
+				//cout << "Found Alternative Path : " << current.x << ", " << current.y << endl;
 			}
 
 			if (!gScore.contains(getPos(iter)) || tentativeScore < gScore[getPos(iter)]) {
@@ -136,12 +152,28 @@ int Day16::PathFind(unordered_map<int, vector<Vec2>> grid, Vec2 start, Vec2 end)
 	return 0;
 }
 
-int Day16::ReconstructPath(unordered_map<int, Vec2> cameFrom, Vec2 current)
+int Day16::ReconstructPath(unordered_map<int, Vec2> cameFrom, Vec2 current, int copyPlaces, Vec2 name)
 {
 	int total = 0;
 	Vec2 dir = current - cameFrom[getPos(current)];
+
 	while (cameFrom.contains(getPos(current))) {
-		cout << "Current: " << current.x << ", " << current.y << endl;
+		if (copyPlaces == 1) {
+			uniquePlaces.insert(getPos(current));
+
+			if (possiblePaths.contains(getPos(current))) {
+				//cout << "Merging Paths: " << current.x << ", " << current.y << endl;
+				set<int> copy = possiblePaths[getPos(current)];
+				uniquePlaces.merge(copy);
+
+				Merge(getPos(current));
+			}
+		}
+		else if (copyPlaces == 2) {
+			possiblePaths[getPos(name)].insert(getPos(current));
+		}
+
+		//cout << "Current: " << current.x << ", " << current.y << endl;
 		Vec2 next = cameFrom[getPos(current)];
 
 		Vec2 newDir = current - cameFrom[getPos(current)];
@@ -156,7 +188,22 @@ int Day16::ReconstructPath(unordered_map<int, Vec2> cameFrom, Vec2 current)
 
 		current = next;
 	}
+	if (copyPlaces == 1) {
+		uniquePlaces.insert(getPos(current));
+	}
 	return total;
+}
+
+void Day16::Merge(int path)
+{
+	for (auto iter : possiblePaths[path]) {
+		if (iter != path && possiblePaths.contains(iter)) {
+			//cout << "Merging Paths: " << iter << endl;
+			set<int> copy = possiblePaths[getPos(iter)];
+			uniquePlaces.merge(copy);
+			Merge(iter);
+		}
+	}
 }
 
 int Day16::h(Vec2 current, Vec2 end)

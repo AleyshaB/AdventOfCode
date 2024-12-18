@@ -7,16 +7,13 @@
 #include <map>
 #include <set>
 
-class Day17
+class Day19
 {
 public:
 	void run();
 
 private:
 	void RunScript(string filename);
-	vector<long long> run(long long currentValue, int depth);
-	vector<int> runProgram(long long a);
 
 	HelperFunctions helperFunctions;
-	vector<int> instructions;
 };
