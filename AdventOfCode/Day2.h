@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
+#include <set>
 
 class Day2
 {
@@ -13,11 +14,6 @@ public:
 
 private:
 	void RunScript(string filename);
-	bool CheckList(vector<int> list);
-	bool CheckOne(int n1, int n2);
-
-	int stopping = 0;
 
 	HelperFunctions helperFunctions;
 };
-

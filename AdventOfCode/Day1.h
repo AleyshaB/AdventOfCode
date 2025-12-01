@@ -5,8 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
-
-using namespace std;
+#include <set>
 
 class Day1
 {
@@ -18,4 +17,3 @@ private:
 
 	HelperFunctions helperFunctions;
 };
-
