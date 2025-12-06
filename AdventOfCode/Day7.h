@@ -6,9 +6,8 @@
 #include <vector>
 #include <map>
 #include <set>
-#include <algorithm>
 
-class Day5
+class Day7
 {
 public:
 	void run();

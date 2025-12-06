@@ -9,6 +9,10 @@ using namespace std;
 
 int HelperFunctions::getIntFromString(string& s, bool eraseEnd)
 {
+	while (s.size() > 0 && s[0] == ' ') {
+		s.erase(0, 1);
+	}
+
 	bool even = true;
 	if (s[0] == '-' || s[0] == '+') {
 		if (s[0] == '-') {
@@ -35,7 +39,9 @@ int HelperFunctions::getIntFromString(string& s, bool eraseEnd)
 	}
 
 	if (eraseEnd) {
-		s.erase(0, 1);
+		while (s.size() > 0 && s[0] == ' ') {
+			s.erase(0, 1);
+		}
 	}
 
 	return num;
